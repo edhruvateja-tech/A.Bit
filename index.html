@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ABITY — Habit & Academic Tracking Platform</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="app-workbench-layout">
+  
+  <!-- ==========================================================================
+       SIDEBAR: DESIGN SYSTEM & INTERACTIVE PROTOTYPE CONTROLS
+       ========================================================================== -->
+  <aside class="sidebar-panel">
+    <div class="sidebar-header">
+      <div class="brand-badge">⚡ Elements of Design</div>
+      <h1 class="sidebar-title">
+        <svg width="24" height="24" viewBox="0 0 100 100" fill="none">
+          <path d="M 25 80 C 15 80 15 65 28 50 L 50 15 L 72 80" stroke="#FE763C" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M 22 55 L 80 55" stroke="#FE763C" stroke-width="8" stroke-linecap="round"/>
+          <circle cx="82" cy="55" r="7" fill="#FE763C"/>
+          <path d="M 60 30 A 18 18 0 0 1 76 46" stroke="#FE763C" stroke-width="6" stroke-linecap="round"/>
+          <line x1="68" y1="20" x2="68" y2="28" stroke="#FE763C" stroke-width="6" stroke-linecap="round"/>
+          <line x1="84" y1="26" x2="78" y2="32" stroke="#FE763C" stroke-width="6" stroke-linecap="round"/>
+        </svg>
+        ABITY
+      </h1>
+      <p class="sidebar-subtitle">Academic Habit Engine built on 60-30-10 color rules and trending UI flows.</p>
+    </div>
+
+    <div class="sidebar-content">
+      
+      <!-- 60-30-10 Color Rule Inspector -->
+      <div class="spec-box">
+        <div class="spec-title">
+          <span>60-30-10 Color Harmony</span>
+          <span style="color:var(--color-primary);font-size:11px;">Active</span>
+        </div>
+        <div class="color-ratio-bar">
+          <div class="ratio-seg ratio-60" title="60% Canvas Off-White">60% Canvas</div>
+          <div class="ratio-seg ratio-30" title="30% Structural Charcoal">30% Dark</div>
+          <div class="ratio-seg ratio-10" title="10% Primary Orange Accent">10%</div>
+        </div>
+        <div class="palette-grid">
+          <div class="swatch-item">
+            <div class="swatch-color" style="background:#FAF6F0;"></div>
+            <div class="swatch-name">60% Canvas</div>
+            <div class="swatch-hex">#FAF6F0</div>
+          </div>
+          <div class="swatch-item">
+            <div class="swatch-color" style="background:#1A1A1A;"></div>
+            <div class="swatch-name">30% Structure</div>
+            <div class="swatch-hex">#1A1A1A</div>
+          </div>
+          <div class="swatch-item">
+            <div class="swatch-color" style="background:#FE763C;"></div>
+            <div class="swatch-name">10% Primary</div>
+            <div class="swatch-hex">#FE763C</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Screen Navigator -->
+      <div class="spec-box">
+        <div class="spec-title">Prototype Screen Links</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+          <button class="btn-secondary" onclick="switchScreen('home')">🏠 Home Dash</button>
+          <button class="btn-secondary" onclick="switchScreen('calendar')">📅 Calendar History</button>
+          <button class="btn-secondary" onclick="switchScreen('library')">📚 Book Library</button>
+          <button class="btn-secondary" onclick="switchScreen('assignments')">📄 Assignments Hub</button>
+          <button class="btn-secondary" onclick="switchScreen('explore')">🧭 Explore & Breathe</button>
+          <button class="btn-secondary" onclick="switchScreen('insights')">📊 Insights / Stats</button>
+          <button class="btn-secondary" onclick="switchScreen('journal')">📖 Mood Journal</button>
+          <button class="btn-secondary" onclick="switchScreen('profile')">👤 Depth Profile</button>
+        </div>
+      </div>
+
+      <!-- Figma Integration Controls -->
+      <div class="spec-box">
+        <div class="spec-title">Figma & Design Assets</div>
+        <button class="btn-figma-export" onclick="copyFigmaTokens()">
+          <svg width="18" height="18" viewBox="0 0 38 57" fill="none">
+            <path d="M19 28.5C19 23.2533 23.2533 19 28.5 19C33.7467 19 38 23.2533 38 28.5C38 33.7467 33.7467 38 28.5 38C23.2533 38 19 33.7467 19 28.5Z" fill="#1ABCFE"/>
+            <path d="M0 47.5C0 42.2533 4.25329 38 9.5 38H19V47.5C19 52.7467 14.7467 57 9.5 57C4.25329 57 0 52.7467 0 47.5Z" fill="#0ACF83"/>
+            <path d="M19 0V19H28.5C33.7467 19 38 14.7467 38 9.5C38 4.25329 33.7467 0 28.5 0H19Z" fill="#FF7262"/>
+            <path d="M0 9.5C0 14.7467 4.25329 19 9.5 19H19V0H9.5C4.25329 0 0 4.25329 0 9.5Z" fill="#F24E1E"/>
+            <path d="M0 28.5C0 33.7467 4.25329 38 9.5 38H19V19H9.5C4.25329 19 0 23.2533 0 28.5Z" fill="#A259FF"/>
+          </svg>
+          Copy Figma Tokens JSON
+        </button>
+        <div style="margin-top:10px;text-align:center;">
+          <a href="figma_design_system.html" target="_blank" style="color:var(--color-primary);font-size:12px;text-decoration:none;font-weight:700;">
+            ↗ Open Figma Vector Specs Sheet
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       MAIN STAGE: INTERACTIVE SMARTPHONE PROTOTYPE
+       ========================================================================== -->
+  <main class="device-stage">
+    
+    <!-- Hidden File Input for Profile Picture Upload -->
+    <input type="file" id="profile-pic-file-input" accept="image/*" style="display:none;" onchange="handleProfilePicSelected(event)">
+
+    <!-- Stage Utility Bar -->
+    <div class="stage-controls">
+      <button class="stage-btn active" id="btn-fit-screen">📱 Mobile View</button>
+      <button class="stage-btn" id="btn-theme-toggle">🌙 Dark Mode</button>
+      <button class="stage-btn primary" onclick="SoundEngine.playSuccess()">⚡ Interactive Haptics</button>
+    </div>
+
+    <!-- Phone Bezel Container -->
+    <div class="mobile-device-frame" id="phone-frame">
+      <div class="device-screen">
+        
+        <!-- Status Bar -->
+        <header class="status-bar">
+          <span id="device-clock">09:41</span>
+          <div class="dynamic-island">
+            <div class="island-camera"></div>
+            <div class="island-sensor"></div>
+          </div>
+          <div style="display:flex;gap:6px;align-items:center;font-size:12px;">
+            <span>5G</span>
+            <span>100%</span>
+          </div>
+        </header>
+
+        <!-- Dynamic Screen Viewport -->
+        <div class="app-viewport">
+          
+          <!-- ==========================================
+               SCREEN 0: SPLASH & ONBOARDING
+               ========================================== -->
+          <section id="screen-splash" style="display:none;">
+            <div class="splash-logo-wrap">
+              <svg class="splash-svg-logo" viewBox="0 0 100 100" fill="none">
+                <path d="M 25 80 C 15 80 15 65 28 50 L 50 15 L 72 80" stroke="#FE763C" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M 22 55 L 82 55" stroke="#FE763C" stroke-width="7" stroke-linecap="round"/>
+                <circle cx="84" cy="55" r="7" fill="#FE763C"/>
+                <path d="M 60 30 A 18 18 0 0 1 76 46" stroke="#FE763C" stroke-width="5" stroke-linecap="round"/>
+                <line x1="68" y1="20" x2="68" y2="28" stroke="#FE763C" stroke-width="5" stroke-linecap="round"/>
+                <line x1="84" y1="26" x2="78" y2="32" stroke="#FE763C" stroke-width="5" stroke-linecap="round"/>
+              </svg>
+              <div class="splash-brand-title">ABITY</div>
+              <div class="splash-brand-tagline">PLAN • DO • GROW</div>
+            </div>
+
+            <div>
+              <div class="splash-pillars">
+                <span class="pillar-chip">Consistent Routines</span>
+                <span class="pillar-chip">Academic Milestones</span>
+              </div>
+              <p style="font-size:13px;color:var(--text-secondary);max-width:280px;margin:0 auto 24px;line-height:1.5;">
+                Elevate your daily habits, master academic focus, and reach your end goals with morning clarity.
+              </p>
+              <button class="btn-start-app" onclick="switchScreen('home')">
+                Get Started ➔
+              </button>
+            </div>
+          </section>
+
+          <!-- ==========================================
+               SCREEN 1: HOME (Daily Academic Dashboard)
+               ========================================== -->
+          <section id="screen-home" class="app-screen active">
+            
+            <!-- Greeting & Profile Picture Placeholder -->
+            <div class="home-header-row">
+              <div class="greeting-block">
+                <div class="greeting-label" id="home-greeting-label">GOOD MORNING,</div>
+                <div class="greeting-name-wrap">
+                  <span class="greeting-name" id="home-user-name">Add Name</span>
+                  <span class="heart-icon" onclick="SoundEngine.playSuccess()">♡</span>
+                </div>
+                <!-- 9. Daily Quote (automatically updates with day cycle) -->
+                <div class="greeting-quote" id="home-daily-quote">
+                  Discipline turns ideas into a portfolio.
+                </div>
+                
+                <!-- 2. Clickable Day and Date -> Opens Calendar History Screen -->
+                <div class="date-selector-row" onclick="switchScreen('calendar')" title="View Calendar & Progress History">
+                  <span>Mon, 15 Sept 2025</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                </div>
+              </div>
+
+              <!-- 2.1 & 2.2 User Profile Picture Box ("upload your future self" when empty) -->
+              <div class="user-hero-photo-card" id="user-hero-photo-placeholder" onclick="triggerProfilePicUpload()" title="Click to upload profile photo / future self">
+                <!-- Injected via app.js -->
+              </div>
+            </div>
+
+            <!-- Two-Column Cards: Weekly Track & To-Do -->
+            <div class="dash-two-col">
+              
+              <!-- 1 & 8. Weekly Track Card (Interlinked with Habit Tracker & Progress Screen) -->
+              <div class="dash-card clickable-card" onclick="switchScreen('insights')" title="Click to view detailed progress overview">
+                <div class="dash-card-header">
+                  <span class="card-title-sm">Weekly Track</span>
+                  <div class="chart-badge-stat" id="weekly-track-badge">↑ 0%</div>
+                </div>
+                <div class="card-subtext">Small steps. Big progress.</div>
+
+                <div class="chart-container-box">
+                  <svg class="chart-svg" viewBox="0 0 160 80" id="weekly-chart-svg-wrap">
+                    <!-- Dynamic spline & data points injected via app.js -->
+                  </svg>
+                  <div class="chart-days-row">
+                    <span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 4. Academic To-Do Card with Scrollbar & Watermark / Sad icon states -->
+              <div class="dash-card todo-card-wrapper">
+                <div class="dash-card-header">
+                  <span class="card-title-sm">To Do</span>
+                  <button class="todo-btn-add" onclick="addNewTodoPrompt()" title="Add Task">+</button>
+                </div>
+                
+                <!-- Watermark forest icon when tasks exist -->
+                <div id="todo-watermark-holder"></div>
+
+                <!-- Scrollable To-Do list container (box does not expand!) -->
+                <div class="todo-list-compact" id="todo-list-container">
+                  <!-- Injected via app.js -->
+                </div>
+              </div>
+
+            </div>
+
+            <!-- 5, 7. Habit Tracker 7-Day Matrix Table (Plus button, Custom PNG icons, Reorder & Delete) -->
+            <div class="habit-matrix-card">
+              <div class="habit-matrix-header">
+                <span class="matrix-title">Habit Tracker</span>
+                <div class="habit-header-actions">
+                  <button class="btn-done-rearrange" onclick="exitRearrangeMode()" title="Exit Rearrange Mode">✓ Done</button>
+                  <button class="habit-btn-add" onclick="openAddHabitModal()" title="Add Custom Habit">+</button>
+                </div>
+              </div>
+
+              <div class="matrix-table-head">
+                <span></span>
+                <span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span>
+              </div>
+
+              <div class="matrix-rows-list" id="habit-matrix-list">
+                <!-- 5.2 Injected via app.js with PNG icons from Icons/ -->
+              </div>
+            </div>
+
+            <!-- 6, 7, 8. Quick Hub 3-Card Shelf (Books Library, Direct Portfolio Link, Assignments Hub) -->
+            <div class="quick-hub-shelf">
+              <!-- 6. Books Icon -> Books Library Screen -->
+              <div class="hub-card-item" onclick="switchScreen('library')" title="Open Book & Reference Library">
+                <img src="Icons/study.png" class="hub-card-icon-img" alt="Books">
+                <div>
+                  <div class="hub-card-title">Books</div>
+                  <div class="hub-card-footer">
+                    <span class="hub-card-desc">Read & Learn</span>
+                    <span class="hub-arrow-icon">➔</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 7. Portfolio Icon -> Direct External Portfolio Link / Setup -->
+              <div class="hub-card-item" onclick="handlePortfolioClick()" title="Open External Portfolio">
+                <img src="Icons/portfolio.png" class="hub-card-icon-img" alt="Portfolio">
+                <div>
+                  <div class="hub-card-title">Portfolio</div>
+                  <div class="hub-card-footer">
+                    <span class="hub-card-desc">External View</span>
+                    <span class="hub-arrow-icon">↗</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 8. Assignments Icon -> Work & Submissions Hub -->
+              <div class="hub-card-item" onclick="switchScreen('assignments')" title="Open Assignments & Submissions Hub">
+                <img src="Icons/assignment.png" class="hub-card-icon-img" alt="Assignments">
+                <div>
+                  <div class="hub-card-title">Assignments</div>
+                  <div class="hub-card-footer">
+                    <span class="hub-card-desc">Share & Refer</span>
+                    <span class="hub-arrow-icon">➔</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </section>
+
+          <!-- ==========================================
+               SCREEN: PROGRESS & DETAILED OVERVIEW (Req 8)
+               ========================================== -->
+          <section id="screen-insights" class="app-screen">
+            <div class="screen-header-row">
+              <button class="btn-icon-back" onclick="switchScreen('home')">←</button>
+              <h2 class="screen-header-title">Progress Overview</h2>
+            </div>
+
+            <!-- 8. Detailed Overview Container (Injected via app.js) -->
+            <div id="progress-detailed-overview-box"></div>
+
+            <div class="insights-card-box">
+              <div class="insights-card-title">Weekly Mood & Energy Trend</div>
+              <div class="mood-trend-bars">
+                <div class="mood-bar-col"><div class="mood-pillar" style="height:60px;"></div><span class="mood-col-label">S</span></div>
+                <div class="mood-bar-col"><div class="mood-pillar" style="height:85px;"></div><span class="mood-col-label">M</span></div>
+                <div class="mood-bar-col"><div class="mood-pillar" style="height:45px;"></div><span class="mood-col-label">T</span></div>
+                <div class="mood-bar-col"><div class="mood-pillar" style="height:95px;"></div><span class="mood-col-label">W</span></div>
+                <div class="mood-bar-col"><div class="mood-pillar" style="height:70px;"></div><span class="mood-col-label">T</span></div>
+                <div class="mood-bar-col">
+                  <div class="mood-pillar peak" style="height:105px;">
+                    <span class="mood-pillar-badge">🔥</span>
+                  </div>
+                  <span class="mood-col-label">F</span>
+                </div>
+                <div class="mood-bar-col"><div class="mood-pillar" style="height:35px;"></div><span class="mood-col-label">S</span></div>
+              </div>
+            </div>
+
+            <div class="ai-discovery-card">
+              <div class="ai-sparkle-icon">✨</div>
+              <div>
+                <div style="font-size:13px;font-weight:700;color:var(--text-primary);">AI Discovery</div>
+                <div style="font-size:12px;color:var(--text-secondary);margin-top:2px;">
+                  Your habit completion correlates strongly with <strong>morning consistency</strong>.
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ==========================================
+               SCREEN: CALENDAR & PROGRESS HISTORY (Req 2)
+               ========================================== -->
+          <section id="screen-calendar" class="app-screen">
+            <div class="screen-header-row">
+              <button class="btn-icon-back" onclick="switchScreen('home')">←</button>
+              <h2 class="screen-header-title">Calendar & History</h2>
+            </div>
+
+            <div class="calendar-widget-box">
+              <div class="calendar-month-row">
+                <span>September 2025</span>
+                <span style="font-size:11px;color:var(--color-primary);">Mon – Sun</span>
+              </div>
+              <div class="cal-grid">
+                <span class="cal-day-label">M</span><span class="cal-day-label">T</span>
+                <span class="cal-day-label">W</span><span class="cal-day-label">T</span>
+                <span class="cal-day-label">F</span><span class="cal-day-label">S</span>
+                <span class="cal-day-label">S</span>
+              </div>
+              <div class="cal-grid" id="calendar-dates-grid" style="margin-top:6px;">
+                <!-- Dates injected via app.js -->
+              </div>
+            </div>
+
+            <div class="cal-history-details-card" id="cal-selected-history">
+              <!-- Selected day progress history details injected via app.js -->
+            </div>
+          </section>
+
+          <!-- ==========================================
+               SCREEN: BOOKS & REFERENCE LIBRARY (Req 6)
+               ========================================== -->
+          <section id="screen-library" class="app-screen">
+            <div class="screen-header-row">
+              <button class="btn-icon-back" onclick="switchScreen('home')">←</button>
+              <h2 class="screen-header-title">Books & Library</h2>
+            </div>
+
+            <div class="library-actions-bar">
+              <button class="btn-secondary" style="flex:1;" onclick="addNewBookFolder()">+ New Folder</button>
+              <button class="btn-primary-action" style="flex:1;padding:8px;" onclick="addNewBookLink()">+ Add Reference</button>
+            </div>
+
+            <div style="font-size:12px;font-weight:700;color:var(--text-secondary);margin-bottom:8px;text-transform:uppercase;">
+              Subject Folders
+            </div>
+            <div class="library-folders-grid" id="library-folders-container">
+              <!-- Folders injected via app.js -->
+            </div>
+
+            <div style="font-size:12px;font-weight:700;color:var(--text-secondary);margin-bottom:8px;text-transform:uppercase;">
+              Saved References & Books
+            </div>
+            <div id="library-books-container">
+              <!-- Books injected via app.js -->
+            </div>
+          </section>
+
+          <!-- ==========================================
+               SCREEN: ASSIGNMENTS & WORK HUB (Req 8)
+               ========================================== -->
+          <section id="screen-assignments" class="app-screen">
+            <div class="screen-header-row">
+              <button class="btn-icon-back" onclick="switchScreen('home')">←</button>
+              <h2 class="screen-header-title">Assignments Hub</h2>
+            </div>
+
+            <div class="library-actions-bar">
+              <button class="btn-secondary" style="flex:1;" onclick="addNewAssignmentFolder()">+ New Topic Folder</button>
+              <button class="btn-primary-action" style="flex:1;padding:8px;" onclick="addNewAssignmentWork()">+ Add Submission</button>
+            </div>
+
+            <div style="font-size:12px;font-weight:700;color:var(--text-secondary);margin-bottom:8px;text-transform:uppercase;">
+              Assignment Folders
+            </div>
+            <div class="library-folders-grid" id="assignment-folders-container">
+              <!-- Folders injected via app.js -->
+            </div>
+
+            <div style="font-size:12px;font-weight:700;color:var(--text-secondary);margin-bottom:8px;text-transform:uppercase;">
+              Work Submissions & References
+            </div>
+            <div id="assignment-items-container">
+              <!-- Items injected via app.js -->
+            </div>
+          </section>
+
+          <!-- ==========================================
+               SCREEN 2: EXPLORE (Guided Breathing & AI Toolkit)
+               ========================================== -->
+          <section id="screen-explore" class="app-screen">
+            <div class="explore-top-nav">
+              <div>
+                <span style="font-size:11px;font-weight:700;color:var(--text-secondary);text-transform:uppercase;">Toolkit</span>
+                <h2 class="explore-screen-title">Academic Relief</h2>
+              </div>
+              <div class="toolkit-pill-btn" onclick="SoundEngine.playClick()">
+                <span>⚡ Quick Relief</span>
+              </div>
+            </div>
+
+            <!-- Breathing Exercise Blossom Tool -->
+            <div class="breathing-master-card">
+              <div style="font-size:16px;font-weight:800;color:var(--text-primary);">Breathing Exercise</div>
+              <div class="breathing-sub-instruction">Guided 4-4-6 breathing with visual rhythm</div>
+
+              <div class="breathing-flower-box">
+                <svg id="breathing-blossom" class="breathing-blossom-svg" viewBox="0 0 100 100">
+                  <g transform="translate(50,50)">
+                    <circle cx="0" cy="0" r="18" fill="rgba(254, 118, 60, 0.4)"/>
+                    <ellipse cx="0" cy="-24" rx="9" ry="16" fill="rgba(254, 118, 60, 0.25)" stroke="#FE763C" stroke-width="1.2"/>
+                    <ellipse cx="0" cy="-24" rx="9" ry="16" fill="rgba(254, 118, 60, 0.25)" stroke="#FE763C" stroke-width="1.2" transform="rotate(30)"/>
+                    <ellipse cx="0" cy="-24" rx="9" ry="16" fill="rgba(254, 118, 60, 0.25)" stroke="#FE763C" stroke-width="1.2" transform="rotate(60)"/>
+                    <ellipse cx="0" cy="-24" rx="9" ry="16" fill="rgba(254, 118, 60, 0.25)" stroke="#FE763C" stroke-width="1.2" transform="rotate(90)"/>
+                    <ellipse cx="0" cy="-24" rx="9" ry="16" fill="rgba(254, 118, 60, 0.25)" stroke="#FE763C" stroke-width="1.2" transform="rotate(120)"/>
+                    <ellipse cx="0" cy="-24" rx="9" ry="16" fill="rgba(254, 118, 60, 0.25)" stroke="#FE763C" stroke-width="1.2" transform="rotate(150)"/>
+                    <ellipse cx="0" cy="-24" rx="9" ry="16" fill="rgba(254, 118, 60, 0.25)" stroke="#FE763C" stroke-width="1.2" transform="rotate(180)"/>
+                    <ellipse cx="0" cy="-24" rx="9" ry="16" fill="rgba(254, 118, 60, 0.25)" stroke="#FE763C" stroke-width="1.2" transform="rotate(210)"/>
+                    <ellipse cx="0" cy="-24" rx="9" ry="16" fill="rgba(254, 118, 60, 0.25)" stroke="#FE763C" stroke-width="1.2" transform="rotate(240)"/>
+                    <ellipse cx="0" cy="-24" rx="9" ry="16" fill="rgba(254, 118, 60, 0.25)" stroke="#FE763C" stroke-width="1.2" transform="rotate(270)"/>
+                    <ellipse cx="0" cy="-24" rx="9" ry="16" fill="rgba(254, 118, 60, 0.25)" stroke="#FE763C" stroke-width="1.2" transform="rotate(300)"/>
+                    <ellipse cx="0" cy="-24" rx="9" ry="16" fill="rgba(254, 118, 60, 0.25)" stroke="#FE763C" stroke-width="1.2" transform="rotate(330)"/>
+                  </g>
+                </svg>
+              </div>
+
+              <div class="breathing-state-text" id="breathing-phase-label">Breathe In</div>
+              <div style="font-size:12px;color:var(--text-tertiary);">Boosts oxygen flow to the brain</div>
+              <div class="breathing-count-display" id="breathing-countdown">4</div>
+              <div class="breathing-cycle-label">Cycle 1 of 6</div>
+
+              <div class="audio-waves-row">
+                <span class="wave-bar"></span><span class="wave-bar active"></span><span class="wave-bar"></span>
+                <span class="wave-bar active"></span><span class="wave-bar"></span><span class="wave-bar active"></span>
+                <span class="wave-bar"></span><span class="wave-bar active"></span><span class="wave-bar"></span>
+                <span class="wave-bar"></span><span class="wave-bar active"></span><span class="wave-bar"></span>
+              </div>
+
+              <button class="btn-primary-action" id="btn-breathing-toggle">
+                Start Exercising >>
+              </button>
+            </div>
+
+            <div class="mini-aid-grid">
+              <div class="mini-aid-card" onclick="SoundEngine.playSuccess()">
+                <span style="font-size:20px;">🧘</span>
+                <div class="mini-aid-title">Reduce Stress</div>
+                <div class="mini-aid-sub">Calms nervous system and lowers exam cortisol.</div>
+              </div>
+              <div class="mini-aid-card" onclick="SoundEngine.playSuccess()">
+                <span style="font-size:20px;">⚡</span>
+                <div class="mini-aid-title">Boost Focus</div>
+                <div class="mini-aid-sub">Improves cognitive retention for study sessions.</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ==========================================
+               SCREEN 4: JOURNAL & MOOD WHEEL
+               ========================================== -->
+          <section id="screen-journal" class="app-screen">
+            <div style="margin-bottom:16px;">
+              <span style="font-size:11px;font-weight:700;color:var(--text-secondary);text-transform:uppercase;">Daily Reflection</span>
+              <h2 class="explore-screen-title">How are you feeling?</h2>
+            </div>
+
+            <div class="mood-arc-selector-card">
+              <div style="font-size:18px;font-weight:800;color:var(--color-primary);" id="selected-mood-title">Happy</div>
+              <div style="font-size:12px;color:var(--text-secondary);margin-top:2px;">Mood Score: <strong id="mood-score-val">72</strong>/100</div>
+
+              <div class="mood-arc-row">
+                <button class="mood-emoji-btn" id="mood-btn-tired" onclick="selectMood('😴','Tired',45)">😴</button>
+                <button class="mood-emoji-btn" id="mood-btn-calm" onclick="selectMood('😌','Calm',68)">😌</button>
+                <button class="mood-emoji-btn active" id="mood-btn-happy" onclick="selectMood('😊','Happy',88)">😊</button>
+                <button class="mood-emoji-btn" id="mood-btn-focused" onclick="selectMood('🤓','Focused',92)">🤓</button>
+                <button class="mood-emoji-btn" id="mood-btn-stressed" onclick="selectMood('😰','Stressed',32)">😰</button>
+              </div>
+            </div>
+
+            <div class="insights-card-box">
+              <div class="insights-card-title">Sentiment Analysis</div>
+              <div style="display:flex;align-items:center;justify-content:space-around;">
+                <svg viewBox="0 0 160 90" style="width:140px;height:80px;">
+                  <path d="M 20 80 A 60 60 0 0 1 140 80" fill="none" stroke="#E2E8F0" stroke-width="16" stroke-linecap="round"/>
+                  <path d="M 20 80 A 60 60 0 0 1 100 24" fill="none" stroke="#FE763C" stroke-width="16" stroke-linecap="round"/>
+                </svg>
+                <div style="font-size:11px;line-height:1.7;">
+                  <div><span style="color:#FE763C;">●</span> <strong>Positive:</strong> 42%</div>
+                  <div><span style="color:#1A1A1A;">●</span> <strong>Neutral:</strong> 37%</div>
+                  <div><span style="color:#A09E9B;">●</span> <strong>Reflective:</strong> 21%</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="journal-input-box">
+              <div style="font-size:12px;font-weight:700;color:var(--text-secondary);margin-bottom:8px;">TODAY'S JOURNAL ENTRY</div>
+              <textarea class="journal-textarea" rows="3" placeholder="What academic milestone or habit made you feel productive today?"></textarea>
+              <button class="btn-primary-action" style="padding:10px;margin-top:8px;font-size:13px;" onclick="SoundEngine.playSuccess();showToast('✓ Reflection saved to academic journal!')">
+                Save Reflection
+              </button>
+            </div>
+          </section>
+
+          <!-- ==========================================
+               SCREEN 5: IN-DEPTH PROFILE & SETTINGS (Req 6 & 9)
+               ========================================== -->
+          <section id="screen-profile" class="app-screen">
+            <div class="profile-avatar-row" onclick="triggerProfilePicUpload()" title="Click to change profile picture">
+              <!-- 2.3 Linked Avatar image -->
+              <div class="profile-avatar-img" id="profile-screen-avatar">
+                <!-- Injected via app.js -->
+              </div>
+              <div>
+                <h3 style="font-size:18px;font-weight:800;color:var(--text-primary);" id="profile-display-name">Add Name</h3>
+                <p style="font-size:11px;color:var(--text-secondary);" id="profile-display-bio">Add Bio / Course</p>
+                <div style="font-size:10px;color:var(--color-primary);font-weight:700;margin-top:2px;">📷 Tap avatar to change photo</div>
+              </div>
+            </div>
+
+            <!-- 6. Profile & Identity Editor -->
+            <div class="profile-field-group">
+              <div class="profile-field-title">User Profile Details</div>
+              <div style="display:flex;flex-direction:column;gap:8px;">
+                <input type="text" class="profile-input" id="profile-name-input" value="" placeholder="Add Name">
+                <input type="text" class="profile-input" id="profile-bio-input" value="" placeholder="Add Bio / Course">
+              </div>
+            </div>
+
+            <!-- External Portfolio Link -->
+            <div class="profile-field-group">
+              <div class="profile-field-title">External Portfolio URL (Shortcut Target)</div>
+              <div style="display:flex;gap:8px;">
+                <input type="url" class="profile-input" id="profile-portfolio-input" value="" placeholder="Add portfolio link">
+                <button class="btn-secondary" style="padding:8px 12px;font-size:11px;" onclick="testPortfolioLink()">Test ↗</button>
+              </div>
+              <p style="font-size:10px;color:var(--text-secondary);margin-top:6px;">
+                Clicking the "Portfolio" icon on the home screen directly opens this link outside the app.
+              </p>
+            </div>
+
+            <!-- Academic Schedule & Notifications -->
+            <div class="profile-field-group">
+              <div class="profile-field-title">Daily Routine Notifications</div>
+              <div style="display:flex;justify-content:space-between;align-items:center;font-size:12px;margin-bottom:8px;">
+                <span>🌅 Morning Habit Check-in</span>
+                <span style="font-weight:700;color:var(--color-primary);">07:30 AM</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;font-size:12px;">
+                <span>🌙 Evening Reflection Journal</span>
+                <span style="font-weight:700;color:var(--color-primary);">09:30 PM</span>
+              </div>
+            </div>
+
+            <!-- Academic Target Goals -->
+            <div class="profile-field-group">
+              <div class="profile-field-title">Academic Milestones & GPA Target</div>
+              <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:6px;">
+                <span>Semester Goal: 9.0 GPA</span>
+                <span style="color:var(--color-primary);font-weight:700;">88% On Track</span>
+              </div>
+              <div style="height:6px;background:var(--bg-canvas);border-radius:99px;overflow:hidden;">
+                <div style="width:88%;height:100%;background:var(--color-primary);"></div>
+              </div>
+            </div>
+
+            <button class="btn-primary-action" onclick="saveProfileSettings()">
+              Save Settings & Profile
+            </button>
+          </section>
+
+        </div>
+
+        <!-- ==========================================
+             BOTTOM NAVIGATION BAR
+             ========================================== -->
+        <nav class="mobile-nav-bar">
+          <button class="nav-tab-item active" data-target="home" onclick="switchScreen('home')">
+            <div class="nav-icon-wrap">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+              </svg>
+            </div>
+            <span class="nav-tab-label">Home</span>
+          </button>
+
+          <button class="nav-tab-item" data-target="explore" onclick="switchScreen('explore')">
+            <div class="nav-icon-wrap">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+              </svg>
+            </div>
+            <span class="nav-tab-label">Explore</span>
+          </button>
+
+          <div class="center-floating-nav-btn" onclick="switchScreen('journal')" title="Log Mood & Journal">
+            ✏️
+          </div>
+
+          <button class="nav-tab-item" data-target="insights" onclick="switchScreen('insights')">
+            <div class="nav-icon-wrap">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="20" x2="18" y2="10"></line>
+                <line x1="12" y1="20" x2="12" y2="4"></line>
+                <line x1="6" y1="20" x2="6" y2="14"></line>
+              </svg>
+            </div>
+            <span class="nav-tab-label">Progress</span>
+          </button>
+
+          <button class="nav-tab-item" data-target="profile" onclick="switchScreen('profile')">
+            <div class="nav-icon-wrap">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </div>
+            <span class="nav-tab-label">Profile</span>
+          </button>
+        </nav>
+
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
